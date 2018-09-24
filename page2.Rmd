@@ -1,0 +1,50 @@
+---
+title: "Lesson 2"
+author: "Jaivin"
+date: "September 24, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. It shows plot of the boulder data:
+```{r}
+
+## load the ggplot2 library for plotting
+library(ggplot2)
+
+## Note: Download data from figshare and save it into working directory and below we import it
+
+## import data
+boulder_precip <- read.csv(file="boulder-precip.csv")
+
+## view first few rows of the data
+head(boulder_precip)
+
+
+```
+
+
+```{r }
+
+# when we download the data we create a dataframe
+# view each column of the data frame using it's name (or header)
+boulder_precip$DATE
+
+# view the precip column
+boulder_precip$PRECIP
+
+```
+
+## Including Plot
+
+```{r precip, echo=FALSE}
+# q plot stands for quick plot. Let's use it to plot our data
+qplot(x=boulder_precip$DATE,
+      y=boulder_precip$PRECIP)
+```
+
